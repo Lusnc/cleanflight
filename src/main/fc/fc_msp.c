@@ -893,7 +893,7 @@ static bool mspFcProcessOutCommand(uint8_t cmdMSP, sbuf_t *dst, mspPostProcessFn
     case MSP_STATUS_EX:
     case MSP_STATUS:
         {
-            boxBitmask_t flightModeFlags;
+            boxBitmask_t flightModeFlags = { 0 };
             const int flagBits = packFlightModeFlags(&flightModeFlags);
 
             sbufWriteU16(dst, getTaskDeltaTime(TASK_GYROPID));
